@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lemonderma SNS 기획 2026</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --yellow: #F7DE5A;
+    --yellow-light: #FEF8D9;
+    --black: #1f1f1f;
+    --white: #ffffff;
+    --gray-bg: #f5f5f3;
+    --gray-light: #efefed;
+    --gray-border: rgba(0,0,0,0.12);
+    --gray-text: #666;
+    --blue-bg: #E6F1FB;
+    --blue-text: #0C447C;
+    --green-bg: #EAF3DE;
+    --green-text: #27500A;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR', sans-serif;
+    background: var(--gray-bg);
+    color: var(--black);
+    padding: 40px 24px 80px;
+    line-height: 1.6;
+  }
+  .page-header {
+    max-width: 1400px;
+    margin: 0 auto 32px;
+  }
+  .page-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+  .page-header p {
+    font-size: 13px;
+    color: var(--gray-text);
+  }
+
+  /* ─── Master Framework ─── */
+  .master-wrap {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+  }
+  .master {
+    background: var(--white);
+    border: 2px solid var(--yellow);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+  }
+  .master-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .badge-master {
+    font-size: 10px;
+    font-weight: 600;
+    background: var(--yellow);
+    color: var(--black);
+    border-radius: 4px;
+    padding: 3px 10px;
+    white-space: nowrap;
+  }
+  .master-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--black);
+  }
+  .sec-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gray-text);
+    margin-bottom: 10px;
+  }
+  .val-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .val-col {
+    background: var(--gray-bg);
+    border-radius: var(--radius-md);
+    padding: 14px;
+  }
+  .vtag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+  }
+  .tag-cb { background: var(--blue-bg); color: var(--blue-text); }
+  .tag-vp { background: var(--yellow); color: var(--black); }
+  .tag-sf { background: var(--green-bg); color: var(--green-text); }
+  .val-brand { font-size: 11px; color: var(--gray-text); line-height: 1.6; margin-bottom: 6px; }
+  .val-sns { font-size: 12px; font-weight: 600; color: var(--black); line-height: 1.6; }
+  .tone-box {
+    background: var(--yellow);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    margin-bottom: 20px;
+  }
+  .tone-q { font-size: 15px; font-weight: 700; color: var(--black); line-height: 1.5; }
+  .tone-s { font-size: 11px; color: #555; margin-top: 4px; }
+  .sixw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .sixw-item {
+    background: var(--gray-bg);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+  }
+  .sixw-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-text);
+    margin-bottom: 5px;
+  }
+  .sixw-text { font-size: 12px; color: var(--black); line-height: 1.6; }
+  .mood-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .mood-col {
+    background: var(--gray-bg);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+  }
+  .mood-col-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+  }
+  .mtags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .mtag {
+    font-size: 11px;
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    color: var(--gray-text);
+  }
+
+  /* ─── 12 Cards ─── */
+  .cards-wrap { max-width: 1400px; margin: 0 auto; }
+  .cards-section-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-text);
+    margin-bottom: 14px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-num {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    background: var(--yellow);
+    color: var(--black);
+    border-radius: 4px;
+    padding: 2px 7px;
+    width: fit-content;
+  }
+  .card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.4;
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+  .ctag {
+    font-size: 8.5px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 2px 6px;
+  }
+  .tone-mini {
+    background: var(--yellow);
+    border-radius: 6px;
+    padding: 7px 10px;
+  }
+  .tone-mini-q { font-size: 10px; font-weight: 700; color: var(--black); line-height: 1.4; }
+  .tone-mini-s { font-size: 8.5px; color: #555; margin-top: 2px; line-height: 1.3; }
+  .card-divider { border: none; border-top: 1px solid var(--gray-border); }
+  .card-sec { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-text); margin-bottom: 4px; }
+  .card-val {
+    background: var(--gray-bg);
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cv-brand { font-size: 9.5px; color: var(--gray-text); line-height: 1.4; }
+  .cv-sns { font-size: 9.5px; font-weight: 700; color: var(--black); line-height: 1.4; }
+  .card-sw { display: flex; flex-direction: column; gap: 3px; }
+  .sw-row { font-size: 9px; color: var(--gray-text); line-height: 1.4; }
+  .sw-row span { color: var(--black); font-weight: 700; }
+  .mood3 { display: flex; flex-direction: column; gap: 4px; }
+  .mblk { background: var(--gray-bg); border-radius: 4px; padding: 6px 8px; }
+  .mblk-label { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--gray-text); margin-bottom: 4px; }
+  .mtags2 { display: flex; flex-wrap: wrap; gap: 3px; }
+  .mt2 { font-size: 8.5px; background: var(--white); border: 1px solid var(--gray-border); border-radius: 3px; padding: 1px 6px; color: var(--gray-text); }
+
+  @media (max-width: 1100px) {
+    .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    .val-grid, .sixw-grid, .mood-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .val-grid, .sixw-grid, .mood-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Lemonderma SNS 기획</h1>
+  <p>브랜드 아이덴티티 기반 SNS 메시지 전략 · 2026.06.29</p>
+</div>
+
+<!-- Master Framework -->
+<div class="master-wrap">
+  <div class="master">
+    <div class="master-header">
+      <span class="badge-master">Master Framework</span>
+      <div class="master-title">Lemonderma SNS 메시지 프레임워크</div>
+    </div>
+
+    <div class="sec-label">3대 가치 전환</div>
+    <div class="val-grid">
+      <div class="val-col">
+        <span class="vtag tag-cb">Clinic-Born</span>
+        <div class="val-brand">52개국 클리닉에 엑소좀을 공급하는 지셸바이오그룹</div>
+        <div class="val-sns">이 성분은 화장품 연구실이 아니라 클리닉에서 시작됐습니다</div>
+      </div>
+      <div class="val-col">
+        <span class="vtag tag-vp">Vegan-Proven</span>
+        <div class="val-brand">비건이어도 효능을 포기하지 않는다</div>
+        <div class="val-sns">비건이 효과가 없다는 말, 레몬더마는 그걸 반박하는 브랜드입니다</div>
+      </div>
+      <div class="val-col">
+        <span class="vtag tag-sf">Sensitive-First</span>
+        <div class="val-brand">가장 까다로운 피부에서 시작했기에 모든 피부에 통한다</div>
+        <div class="val-sns">우리의 기준은 가장 예민한 피부입니다 — 당신이 그 기준입니다</div>
+      </div>
+    </div>
+
+    <div class="tone-box">
+      <div class="tone-q">"당신 편에 선 과학자"</div>
+      <div class="tone-s">차갑지 않고, 허황되지 않고, 예민한 피부를 오해하지 않는.</div>
+    </div>
+
+    <div class="sec-label">육하원칙</div>
+    <div class="sixw-grid">
+      <div class="sixw-item"><div class="sixw-label">누가</div><div class="sixw-text">자극 없이 쓰거나 효과를 기대하거나, 둘 중 하나를 포기해온 예민성 피부 소비자</div></div>
+      <div class="sixw-item"><div class="sixw-label">무엇을</div><div class="sixw-text">그 포기가 틀렸음을 — 비건 더마가 동시에 가능하다는 것을</div></div>
+      <div class="sixw-item"><div class="sixw-label">언제</div><div class="sixw-text">스킨케어 루틴을 바꾸고 싶지만 또 실패할까봐 망설이는 순간</div></div>
+      <div class="sixw-item"><div class="sixw-label">어디서</div><div class="sixw-text">인스타그램 피드·릴스 / TikTok</div></div>
+      <div class="sixw-item"><div class="sixw-label">왜</div><div class="sixw-text">레몬더마는 그 이분법을 깬 유일한 포지션이기 때문에</div></div>
+      <div class="sixw-item"><div class="sixw-label">어떻게</div><div class="sixw-text">공감 → 의심 해소 → 신뢰 → 전환의 감정 여정으로, 선언하고 증명하고 경험하게</div></div>
+    </div>
+
+    <div class="sec-label">무드 키워드</div>
+    <div class="mood-grid">
+      <div class="mood-col">
+        <div class="mood-col-label">시각</div>
+        <div class="mtags">
+          <span class="mtag">레몬 옐로우 × 블랙 강한 대비</span>
+          <span class="mtag">매크로 텍스처</span>
+          <span class="mtag">클린 여백</span>
+          <span class="mtag">실험실+자연의 결합</span>
+        </div>
+      </div>
+      <div class="mood-col">
+        <div class="mood-col-label">언어</div>
+        <div class="mtags">
+          <span class="mtag">선언적</span>
+          <span class="mtag">과학적이되 따뜻한</span>
+          <span class="mtag">짧고 단호한</span>
+          <span class="mtag">소비자 편에 서있는</span>
+        </div>
+      </div>
+      <div class="mood-col">
+        <div class="mood-col-label">감정</div>
+        <div class="mtags">
+          <span class="mtag">안도</span>
+          <span class="mtag">신뢰</span>
+          <span class="mtag">작동감</span>
+          <span class="mtag">처음 느끼는 변화</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 12 Cards -->
+<div class="cards-wrap">
+  <div class="cards-section-label">콘텐츠 기획 12선</div>
+  <div class="cards-grid">
+
+    <!-- 01 -->
+    <div class="card">
+      <span class="card-num">01</span>
+      <div class="card-title">이분법 선언</div>
+      <div class="card-tags"><span class="ctag tag-sf">Sensitive-First</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"소비자의 딜레마를 먼저 말하는 브랜드"</div><div class="tone-mini-s">판단하지 않고, 오랜 포기를 먼저 인정하는.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">가장 까다로운 피부에서 시작했기에 모든 피부에 통한다</div>
+        <div class="cv-sns">자극 없이 쓰거나, 효과를 기대하거나 — 레몬더마는 그 선택을 강요하지 않습니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 자극이 두려워 효능 좋은 제품을 포기해본 예민성 피부 소비자</div>
+        <div class="sw-row"><span>무엇을</span> "둘 중 하나를 선택해야 한다"는 공식이 틀렸음을</div>
+        <div class="sw-row"><span>언제</span> 또 실패할까봐 새 제품을 망설이는 순간</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 피드 고정 핀</div>
+        <div class="sw-row"><span>왜</span> 브랜드가 존재하는 이유 자체가 이 선언이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 소비자의 말을 먼저 꺼내고, 레몬더마가 그 자리에 있다고 닫는다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">블랙 배경</span><span class="mt2">옐로우 타이포</span><span class="mt2">강한 대비</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">선언적</span><span class="mt2">단호하고 따뜻한</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">공감</span><span class="mt2">안도</span></div></div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="card">
+      <span class="card-num">02</span>
+      <div class="card-title">클리닉이 먼저였다</div>
+      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"증거를 조용히 내밀어 신뢰를 만드는 브랜드"</div><div class="tone-mini-s">과장 없이, 사실로만 설득하는.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">52개국 클리닉에 엑소좀을 공급하는 지셸바이오그룹</div>
+        <div class="cv-sns">이 성분은 화장품 연구실이 아니라 클리닉에서 시작됐습니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> "비건 스킨케어가 진짜 효과 있어?" 의심하는 성분 고관여 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 지셸바이오그룹이 52개국 클리닉에 엑소좀을 공급하는 바이오메디컬 기업임을</div>
+        <div class="sw-row"><span>언제</span> 브랜드 신뢰를 쌓는 초기 단계</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 캐러셀</div>
+        <div class="sw-row"><span>왜</span> Clinic-Born이 레몬더마를 일반 K-뷰티와 구분하는 결정적 근거이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> "화장품 연구가 아닙니다"로 시작해 클리닉 → 제품으로 귀결</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">실험실 이미지</span><span class="mt2">화이트 + 옐로우</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">과학적</span><span class="mt2">차분한 권위</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">신뢰</span><span class="mt2">의심 해소</span></div></div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="card">
+      <span class="card-num">03</span>
+      <div class="card-title">비건이 효과 없다는 말</div>
+      <div class="card-tags"><span class="ctag tag-vp">Vegan-Proven</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"편견을 정면으로 반박하는 브랜드"</div><div class="tone-mini-s">부드럽지 않게, 그러나 소비자 편에서.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">비건이어도 효능을 포기하지 않는다</div>
+        <div class="cv-sns">비건이 효과가 없다는 말, 레몬더마는 그걸 반박하는 브랜드입니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 비건 제품을 써봤지만 효과가 없어 포기한 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 비건이 효과 없다는 공식이 틀렸음을</div>
+        <div class="sw-row"><span>언제</span> 비건 스킨케어를 다시 고려하는 순간</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 릴스 + TikTok</div>
+        <div class="sw-row"><span>왜</span> Vegan-Proven이 레몬더마의 존재 이유이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 편견을 먼저 인정하고, 레몬더마가 반박하는 구조로 전개</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">강한 대비</span><span class="mt2">블랙 + 옐로우</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">반박하는</span><span class="mt2">단호한 선언</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">반전</span><span class="mt2">확신</span></div></div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="card">
+      <span class="card-num">04</span>
+      <div class="card-title">레몬을 선택한 이유</div>
+      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span><span class="ctag tag-vp">Vegan-Proven</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"R&D 서사를 소비자 언어로 번역하는 브랜드"</div><div class="tone-mini-s">어렵지 않게, 그러나 깊이 있게.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">식물 엑소좀 후보군 비교 끝에 도달한 결과</div>
+        <div class="cv-sns">수많은 식물 중 레몬에 도달했습니다. 우연이 아니었습니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> "왜 이 성분인가"를 궁금해하는 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 수많은 식물 중 레몬 엑소좀에 도달한 과학적 이유를</div>
+        <div class="sw-row"><span>언제</span> 브랜드 성분 교육 흐름 안에서</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 캐러셀</div>
+        <div class="sw-row"><span>왜</span> 레몬이 브랜드명이자 핵심 성분 — 선택의 명분이 곧 브랜드 신뢰이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> "우연이 아니었습니다"로 시작해 선택의 근거를 하나씩 보여준다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">레몬 단면 매크로</span><span class="mt2">옐로우 + 화이트</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">서사적</span><span class="mt2">지적 호기심</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">궁금증 해소</span><span class="mt2">신뢰</span></div></div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="card">
+      <span class="card-num">05</span>
+      <div class="card-title">예민함이 기준입니다</div>
+      <div class="card-tags"><span class="ctag tag-sf">Sensitive-First</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"나를 위한 브랜드라고 느끼게 하는 브랜드"</div><div class="tone-mini-s">선언보다 포용이 먼저.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">예민함은 한계가 아니라, 우리의 기준점입니다</div>
+        <div class="cv-sns">우리의 기준은 가장 예민한 피부입니다 — 당신이 그 기준입니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 스킨케어 제품마다 트러블이 나서 지쳐있는 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 예민함이 한계가 아니라 레몬더마의 시작점이라는 것을</div>
+        <div class="sw-row"><span>언제</span> 브랜드 감성 공감 콘텐츠 주기</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 피드 싱글 이미지</div>
+        <div class="sw-row"><span>왜</span> "가장 까다로운 피부에서 시작했기에 모든 피부에 통한다"가 브랜드 미션이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 소비자의 감정을 먼저 인정하고, 브랜드의 기준이 그것이라고 선언</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">여백 강조</span><span class="mt2">따뜻한 옐로우</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">조용한 선언</span><span class="mt2">소비자 편</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">안도</span><span class="mt2">소속감</span></div></div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="card">
+      <span class="card-num">06</span>
+      <div class="card-title">작동감은 자극이 아닙니다</div>
+      <div class="card-tags"><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-sf">Sensitive-First</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"소비자의 오해를 솔직하게 풀어주는 브랜드"</div><div class="tone-mini-s">불안을 인정하고, 과학으로 안심시키는.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">Sensation은 mechanical — "Feel the active" / Burn 아님</div>
+        <div class="cv-sns">그 느낌, 자극이 아닙니다. 레몬더마가 일하는 소리입니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 세럼 sensation에 불안함을 느낄 수 있는 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 작동감은 화학적 자극이 아닌 물리적 sensation임을</div>
+        <div class="sw-row"><span>언제</span> 구매 후 첫 사용 단계 / 신규 소비자 온보딩</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 릴스 + 스토리</div>
+        <div class="sw-row"><span>왜</span> "Feel the active. Not the burn." 이 차이가 제품 신뢰의 핵심이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> "그 느낌, 자극이 아닙니다"로 훅 잡고 메커니즘을 쉽게 설명</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">세럼 텍스처 클로즈업</span><span class="mt2">매크로</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">솔직한</span><span class="mt2">과학적이되 따뜻한</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">안심</span><span class="mt2">작동감</span></div></div>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="card">
+      <span class="card-num">07</span>
+      <div class="card-title">세럼이 열고 크림이 잠근다</div>
+      <div class="card-tags"><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-cb">Clinic-Born</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"루틴 서사로 시스템을 각인시키는 브랜드"</div><div class="tone-mini-s">제품 설명이 아니라 경험의 순서를 파는.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">SERUM OPENS, CREAM SEALS — 2-step 루틴 시스템</div>
+        <div class="cv-sns">두 개가 한 루틴입니다. 열고, 잠그는 것</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 레몬더마를 처음 접하는 소비자 / 세럼만 구매한 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 2-step이 하나의 완성된 시스템임을</div>
+        <div class="sw-row"><span>언제</span> 제품 소개 / 번들 구매 유도 타이밍</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 캐러셀 + TikTok</div>
+        <div class="sw-row"><span>왜</span> 루틴 서사 없이는 크림의 존재 이유가 전달되지 않기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 세럼 → 크림 → 완성된 피부의 3단 구조로 시각화</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">텍스처 비교</span><span class="mt2">클린 화이트 + 옐로우</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">시퀀셜</span><span class="mt2">완성의 감각</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">완결감</span><span class="mt2">루틴 각인</span></div></div>
+      </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="card">
+      <span class="card-num">08</span>
+      <div class="card-title">K-Pharmacy가 다른 이유</div>
+      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"카테고리 자체를 새로 정의하는 브랜드"</div><div class="tone-mini-s">트렌드가 아니라 카테고리로 싸우는.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">K-Pharmacy(약국) 유통, 의약품급 품질관리</div>
+        <div class="cv-sns">K-뷰티와 K-Pharmacy는 다릅니다. 우리는 약국에서 시작했습니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> K-뷰티는 알지만 K-Pharmacy를 처음 접하는 글로벌 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 약국 유통이 곧 의약품급 품질 기준이라는 의미를</div>
+        <div class="sw-row"><span>언제</span> 글로벌 신규 시장 진입 / 브랜드 인지 초기</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 릴스 + TikTok</div>
+        <div class="sw-row"><span>왜</span> "Not K-beauty lifestyle. K-Pharmacy active treatment." 포지션 핵심이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> "K-뷰티와 K-Pharmacy는 다릅니다"로 카테고리 먼저 나누고 선언</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">한국 약국 비주얼</span><span class="mt2">블랙 + 화이트</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">카테고리 선언</span><span class="mt2">권위있는</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">신뢰</span><span class="mt2">차별화 인식</span></div></div>
+      </div>
+    </div>
+
+    <!-- 09 -->
+    <div class="card">
+      <span class="card-num">09</span>
+      <div class="card-title">처음으로 달라지는 경험</div>
+      <div class="card-tags"><span class="ctag tag-sf">Sensitive-First</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"소비자의 변화를 브랜드의 증거로 삼는 브랜드"</div><div class="tone-mini-s">UGC가 곧 미션의 완성.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">한 번도 성공해본 적 없는 루틴의 끝에서 처음으로 피부가 달라지는 경험</div>
+        <div class="cv-sns">또 실패한 게 아니었습니다. 제품이 기준에 못 미쳤던 겁니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 레몬더마를 써본 소비자 + 후기를 찾는 잠재 소비자</div>
+        <div class="sw-row"><span>무엇을</span> "처음으로 피부가 달라지는 경험"이 실재함을</div>
+        <div class="sw-row"><span>언제</span> 구매 후 2주 시점 / 정기 UGC 캠페인</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 스토리 + 피드 리포스팅</div>
+        <div class="sw-row"><span>왜</span> 브랜드 미션 문장이 곧 소비자 경험의 언어이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 브랜드가 먼저 그 감정을 말하고, 소비자가 태그로 응답하게 설계</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">실제 피부 변화</span><span class="mt2">옐로우 틴트</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">감정적 공명</span><span class="mt2">소비자 편</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">처음 느끼는 변화</span><span class="mt2">따뜻함</span></div></div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <span class="card-num">10</span>
+      <div class="card-title">막힌 곳을 뚫다</div>
+      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-sf">Sensitive-First</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"브랜드 존재 이유를 감성으로 총결산하는 브랜드"</div><div class="tone-mini-s">3대 가치가 하나의 서사로 모이는 순간.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">Resolving — 막힌 곳을 뚫다, 매듭을 풀다</div>
+        <div class="cv-sns">예민한 피부가 포기하지 않아도 되는 세상, 우리가 만들어 가고 있습니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 레몬더마를 아는 소비자부터 처음 만나는 잠재 바이어까지</div>
+        <div class="sw-row"><span>무엇을</span> 브랜드 에센스 "막힌 곳을 뚫다"를 하나의 서사로</div>
+        <div class="sw-row"><span>언제</span> 브랜드 마일스톤 / 분기 1회 브랜드 필름</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 피드 + 릴스 30초</div>
+        <div class="sw-row"><span>왜</span> 모든 콘텐츠의 뿌리가 되는 브랜드 비전을 주기적으로 환기해야 하기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 막힌 순간 → 레몬더마의 선언 → 달라진 세상의 3막 구조</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">슬로우 모션 텍스처</span><span class="mt2">옐로우→화이트 페이드</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">서사적</span><span class="mt2">감성적 총결산</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">감동</span><span class="mt2">브랜드 귀속감</span></div></div>
+      </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <span class="card-num">11</span>
+      <div class="card-title">우리가 안 쓰는 것</div>
+      <div class="card-tags"><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-sf">Sensitive-First</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"안 쓰는 것으로 역차별화하는 브랜드"</div><div class="tone-mini-s">포화된 성분 경쟁에서 빠져나오는 방법.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">No retinol. No AHA·BHA. No marine sponge. No burn.</div>
+        <div class="cv-sns">레티놀 대신 레몬 엑소좀. 해양 스피큘 대신 비건 미네랄. 자극 대신 작동감</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 레티놀·AHA로 피부 자극 경험이 있는 소비자</div>
+        <div class="sw-row"><span>무엇을</span> 자극 성분 없이도 효능이 가능하다는 것을</div>
+        <div class="sw-row"><span>언제</span> 레티놀·AHA 대안을 찾는 소비자가 검색하는 순간</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 릴스 (15초 타이포 애니메이션)</div>
+        <div class="sw-row"><span>왜</span> "우리가 안 쓰는 것"이 포화 시장에서 가장 강력한 차별점이기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 블랙 배경에 텍스트 하나씩 등장 → 레몬 옐로우 제품 샷으로 전환</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">블랙 배경</span><span class="mt2">타이포 애니메이션</span><span class="mt2">옐로우 전환</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">역차별화</span><span class="mt2">단호한</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">안심</span><span class="mt2">선택의 명확함</span></div></div>
+      </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <span class="card-num">12</span>
+      <div class="card-title">비건인데 Marine-free가 다릅니다</div>
+      <div class="card-tags"><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-cb">Clinic-Born</span></div>
+      <div class="tone-mini"><div class="tone-mini-q">"성분 비교로 Vegan tech beauty를 각인시키는 브랜드"</div><div class="tone-mini-s">클린뷰티가 아니라 비건 테크로 싸우는.</div></div>
+      <hr class="card-divider">
+      <div class="card-sec">3대 가치 전환</div>
+      <div class="card-val">
+        <div class="cv-brand">Vegan Microcrystal = lab-engineered 합성 광물 유리. Marine sponge와 화학적으로 완전히 다른 물질</div>
+        <div class="cv-sns">비건이라고 다 같은 비건이 아닙니다. 우리 마이크로크리스탈은 바다에서 오지 않았습니다</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">육하원칙</div>
+      <div class="card-sw">
+        <div class="sw-row"><span>누가</span> 비건 스킨케어를 찾지만 스피큘의 해양 유래 여부를 모르는 소비자</div>
+        <div class="sw-row"><span>무엇을</span> Marine sponge spicule vs Vegan Microcrystal의 본질적 차이를</div>
+        <div class="sw-row"><span>언제</span> 성분 고관여 콘텐츠 주기 / 격주 1회</div>
+        <div class="sw-row"><span>어디서</span> 인스타그램 캐러셀</div>
+        <div class="sw-row"><span>왜</span> 단순 클린뷰티가 아닌 비건 테크 브랜드로 인식 전환이 필요하기 때문에</div>
+        <div class="sw-row"><span>어떻게</span> 두 컬럼 비교 인포그래픽. "No ocean. No animal. EWG Green." 정량 강조</div>
+      </div>
+      <hr class="card-divider">
+      <div class="card-sec">무드 키워드</div>
+      <div class="mood3">
+        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">비교 인포그래픽</span><span class="mt2">화이트 + 옐로우</span></div></div>
+        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">성분 교육</span><span class="mt2">비건 테크</span></div></div>
+        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">신뢰</span><span class="mt2">차별화 인식</span></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
