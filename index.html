@@ -3,518 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lemonderma SNS 기획 2026</title>
+<title>Lemonderma SNS 기획 100선</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --yellow: #F7DE5A;
-    --yellow-light: #FEF8D9;
     --black: #1f1f1f;
     --white: #ffffff;
     --gray-bg: #f5f5f3;
-    --gray-light: #efefed;
-    --gray-border: rgba(0,0,0,0.12);
-    --gray-text: #666;
-    --blue-bg: #E6F1FB;
-    --blue-text: #0C447C;
-    --green-bg: #EAF3DE;
-    --green-text: #27500A;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+    --gray-border: rgba(0,0,0,0.1);
+    --gray-text: #888;
   }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans KR', sans-serif;
     background: var(--gray-bg);
     color: var(--black);
-    padding: 40px 24px 80px;
-    line-height: 1.6;
+    padding: 32px 20px 80px;
   }
   .page-header {
-    max-width: 1400px;
-    margin: 0 auto 32px;
-  }
-  .page-header h1 {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--black);
-    margin-bottom: 4px;
-  }
-  .page-header p {
-    font-size: 13px;
-    color: var(--gray-text);
-  }
-
-  /* ─── Main Layout ─── */
-  .layout {
-    max-width: 1600px;
-    margin: 0 auto;
+    max-width: 1800px;
+    margin: 0 auto 20px;
     display: flex;
-    gap: 20px;
-    align-items: flex-start;
-  }
-  .master-wrap {
-    width: 300px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 24px;
-  }
-  .master {
-    background: var(--white);
-    border: 2px solid var(--yellow);
-    border-radius: var(--radius-lg);
-    padding: 20px;
-    max-height: calc(100vh - 48px);
-    overflow-y: auto;
-  }
-  .master-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--gray-border);
-  }
-  .badge-master {
-    font-size: 10px;
-    font-weight: 600;
-    background: var(--yellow);
-    color: var(--black);
-    border-radius: 4px;
-    padding: 3px 10px;
-    white-space: nowrap;
-  }
-  .master-title {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--black);
-  }
-  .sec-label {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--gray-text);
-    margin-bottom: 10px;
-  }
-  .val-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .val-col {
-    background: var(--gray-bg);
-    border-radius: var(--radius-md);
-    padding: 14px;
-  }
-  .vtag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 600;
-    border-radius: 4px;
-    padding: 2px 8px;
-    margin-bottom: 8px;
-  }
-  .tag-cb { background: var(--blue-bg); color: var(--blue-text); }
-  .tag-vp { background: var(--yellow); color: var(--black); }
-  .tag-sf { background: var(--green-bg); color: var(--green-text); }
-  .val-brand { font-size: 11px; color: var(--gray-text); line-height: 1.6; margin-bottom: 6px; }
-  .val-sns { font-size: 12px; font-weight: 600; color: var(--black); line-height: 1.6; }
-  .tone-box {
-    background: var(--yellow);
-    border-radius: var(--radius-md);
-    padding: 14px 18px;
-    margin-bottom: 20px;
-  }
-  .tone-q { font-size: 15px; font-weight: 700; color: var(--black); line-height: 1.5; }
-  .tone-s { font-size: 11px; color: #555; margin-top: 4px; }
-  .sixw-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  .sixw-item {
-    background: var(--gray-bg);
-    border-radius: var(--radius-md);
-    padding: 12px 14px;
-  }
-  .sixw-label {
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--gray-text);
-    margin-bottom: 5px;
-  }
-  .sixw-text { font-size: 12px; color: var(--black); line-height: 1.6; }
-  .mood-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-  .mood-col {
-    background: var(--gray-bg);
-    border-radius: var(--radius-md);
-    padding: 12px 14px;
-  }
-  .mood-col-label {
-    font-size: 9px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--gray-text);
-    margin-bottom: 8px;
-  }
-  .mtags { display: flex; flex-wrap: wrap; gap: 5px; }
-  .mtag {
-    font-size: 11px;
-    background: var(--white);
-    border: 1px solid var(--gray-border);
-    border-radius: 4px;
-    padding: 2px 8px;
-    color: var(--gray-text);
-  }
-
-  /* ─── 7 Cards ─── */
-  .cards-wrap { max-width: 1600px; margin: 0 auto; width: 100%; }
-  .cards-section-label {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray-text);
-    margin-bottom: 14px;
-  }
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: baseline;
     gap: 12px;
   }
+  .page-header h1 { font-size: 18px; font-weight: 600; }
+  .page-header p { font-size: 12px; color: var(--gray-text); }
+
+  .fixed-bar {
+    max-width: 1800px;
+    margin: 0 auto 16px;
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    gap: 20px;
+    font-size: 11px;
+    color: var(--gray-text);
+  }
+  .fixed-bar strong { color: var(--black); font-weight: 600; }
+  .fixed-item { display: flex; gap: 5px; align-items: center; }
+  .fixed-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; background: var(--gray-bg); border-radius: 3px; padding: 1px 5px; }
+
+  .grid {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .card {
     background: var(--white);
     border: 1px solid var(--gray-border);
-    border-radius: var(--radius-lg);
-    padding: 14px;
+    border-radius: 8px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
+    cursor: pointer;
+    transition: opacity 0.15s, filter 0.15s;
   }
-  .card.card-master { border: 2px solid var(--yellow); }
+  .grid.has-focus .card { opacity: 0.15; filter: grayscale(0.4); }
+  .grid.has-focus .card.focused { opacity: 1; filter: none; }
+
   .card-num {
     display: inline-block;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 700;
     background: var(--yellow);
     color: var(--black);
-    border-radius: 4px;
-    padding: 2px 7px;
+    border-radius: 3px;
+    padding: 1px 6px;
     width: fit-content;
   }
   .card-title {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 700;
     color: var(--black);
     line-height: 1.4;
   }
-  .card-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-  .ctag {
-    font-size: 8.5px;
-    font-weight: 600;
-    border-radius: 3px;
-    padding: 2px 6px;
-  }
-  .tone-mini {
-    background: var(--yellow);
-    border-radius: 6px;
-    padding: 7px 10px;
-  }
-  .tone-mini-q { font-size: 10px; font-weight: 700; color: var(--black); line-height: 1.4; }
-  .tone-mini-s { font-size: 8.5px; color: #555; margin-top: 2px; line-height: 1.3; }
   .card-divider { border: none; border-top: 1px solid var(--gray-border); }
-  .card-sec { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-text); margin-bottom: 4px; }
-  .card-val {
-    background: var(--gray-bg);
-    border-radius: 6px;
-    padding: 8px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .cv-brand { font-size: 9.5px; color: var(--gray-text); line-height: 1.4; }
-  .cv-sns { font-size: 9.5px; font-weight: 700; color: var(--black); line-height: 1.4; }
-  .card-sw { display: flex; flex-direction: column; gap: 3px; }
-  .sw-row { font-size: 9px; color: var(--gray-text); line-height: 1.4; }
-  .sw-row span { color: var(--black); font-weight: 700; }
-  .mood3 { display: flex; flex-direction: column; gap: 4px; }
-  .mblk { background: var(--gray-bg); border-radius: 4px; padding: 6px 8px; }
-  .mblk-label { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--gray-text); margin-bottom: 4px; }
-  .mtags2 { display: flex; flex-wrap: wrap; gap: 3px; }
-  .mt2 { font-size: 8.5px; background: var(--white); border: 1px solid var(--gray-border); border-radius: 3px; padding: 1px 6px; color: var(--gray-text); }
 
-  /* ─── Focus mode ─── */
-  .card { cursor: pointer; transition: opacity 0.2s, filter 0.2s; }
-  .cards-grid.has-focus .card { opacity: 0.2; filter: grayscale(0.3); }
-  .cards-grid.has-focus .card.focused { opacity: 1; filter: none; }
+  .row { font-size: 9px; line-height: 1.45; color: var(--gray-text); }
+  .row b { color: var(--black); font-weight: 700; }
 
-  @media (max-width: 1100px) {
-    .layout { flex-direction: column; }
-    .master-wrap { width: 100%; position: static; }
-    .master { max-height: none; }
-    .val-grid, .sixw-grid, .mood-grid { grid-template-columns: repeat(3, 1fr); }
-    .cards-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-  @media (max-width: 700px) {
-    .cards-grid { grid-template-columns: repeat(2, 1fr); }
-    .val-grid, .sixw-grid, .mood-grid { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 1400px) { .grid { grid-template-columns: repeat(5, 1fr); } }
+  @media (max-width: 800px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 </style>
 </head>
 <body>
 
 <div class="page-header">
-  <h1>Lemonderma SNS 기획</h1>
-  <p>브랜드 아이덴티티 기반 SNS 메시지 전략 · 2026.06.29</p>
+  <h1>Lemonderma SNS 기획 100선</h1>
+  <p>2026.06.30 · 누가 / 어떻게 / 왜 변주</p>
 </div>
 
-<!-- 7 Cards -->
-<div class="cards-wrap">
-  <div class="cards-section-label">콘텐츠 기획 7선</div>
-  <div class="cards-grid">
-
-    <!-- 01 -->
-    <div class="card card-master">
-      <span class="card-num">01</span>
-      <div class="card-title">당신 편에 선 과학자</div>
-      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-sf">Sensitive-First</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"공감하고, 데이터로 증명하는 브랜드"</div><div class="tone-mini-s">예민한 피부를 오해하지 않고, 과학으로 설득하는.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">클리닉 R&D + 비건 효능 + 예민성 기준</div>
-        <div class="cv-sns">우리는 당신 피부 편입니다. 그리고 그 말을 데이터로 증명합니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> 스킨케어 브랜드에 지쳐 더 이상 믿지 않으려는 소비자</div>
-        <div class="sw-row"><span>무엇을</span> 레몬더마는 소비자 편에 서있는 브랜드라는 것을</div>
-        <div class="sw-row"><span>언제</span> 브랜드를 처음 접하는 모든 접점</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 바이오 + 모든 콘텐츠 공통 기조</div>
-        <div class="sw-row"><span>왜</span> 이 한 문장이 레몬더마의 모든 콘텐츠를 관통하는 톤이기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> 선언이 아닌 행동으로 — 수치, 성분 근거, 소비자 경험으로 증명</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">옐로우 × 블랙 강한 대비</span><span class="mt2">클린 여백</span><span class="mt2">실험실+자연</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">따뜻한 과학</span><span class="mt2">짧고 단호한</span><span class="mt2">소비자 편</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">신뢰</span><span class="mt2">안도</span><span class="mt2">처음 느끼는 변화</span></div></div>
-      </div>
-    </div>
-
-    <!-- 02 -->
-    <div class="card">
-      <span class="card-num">02</span>
-      <div class="card-title">효능이냐 안전이냐 — 더 이상 고르지 마세요</div>
-      <div class="card-tags"><span class="ctag tag-sf">Sensitive-First</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"소비자가 오랫동안 강요받아온 선택을 없애는 브랜드"</div><div class="tone-mini-s">이 선택지 자체가 잘못된 것이었음을 수치로 보여주는.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">가장 까다로운 피부에서 시작했기에 모든 피부에 통한다</div>
-        <div class="cv-sns">효능이 두려운 피부는 없어야 합니다. 레몬더마는 그걸 임상으로 증명했습니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> 자극이 두려워 효능 좋은 제품을 포기해본 예민성 피부 소비자</div>
-        <div class="sw-row"><span>무엇을</span> 효능과 안전함은 동시에 가능하다는 것을 — 숫자로</div>
-        <div class="sw-row"><span>언제</span> 새 스킨케어를 고려하지만 또 실패할까봐 망설이는 순간</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 피드 고정 핀 + 릴스</div>
-        <div class="sw-row"><span>왜</span> 이 이분법을 깨는 것이 레몬더마가 존재하는 이유이기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> "둘 중 하나를 포기해야 했다"는 공식을 먼저 인정하고, 임상 데이터로 반박</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">블랙 배경</span><span class="mt2">옐로우 타이포</span><span class="mt2">강한 대비</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">선언적</span><span class="mt2">수치 기반</span><span class="mt2">단호한</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">공감</span><span class="mt2">안도</span><span class="mt2">확신</span></div></div>
-      </div>
-    </div>
-
-    <!-- 03 -->
-    <div class="card">
-      <span class="card-num">03</span>
-      <div class="card-title">클리닉 데이터가 만든 스킨케어</div>
-      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"임상 수치로 신뢰를 만드는 브랜드"</div><div class="tone-mini-s">52개국 클리닉의 실험 결과가 이 병 안에 있습니다.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">52개국 클리닉에 엑소좀을 공급하는 지셸바이오그룹</div>
-        <div class="cv-sns">화장품 회사가 만든 게 아닙니다. 클리닉 납품 데이터를 가진 바이오메디컬 기업이 만들었습니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> "비건 스킨케어, 진짜 효과 있어?" 의심하는 성분 고관여 소비자</div>
-        <div class="sw-row"><span>무엇을</span> 이 제품을 선택해야 하는 이유 — 클리닉급 R&D 백그라운드와 임상 수치를</div>
-        <div class="sw-row"><span>언제</span> 브랜드 신뢰를 쌓는 초기 / 구매 전 비교 단계</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 캐러셀</div>
-        <div class="sw-row"><span>왜</span> 일반 K-뷰티와 레몬더마를 구분하는 결정적 근거가 R&D 출처이기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> "화장품 연구가 아닙니다"로 시작 → 클리닉 납품 수치 → 제품에 담긴 기술로 귀결</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">실험실 + 데이터 시각화</span><span class="mt2">화이트 + 옐로우</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">수치 기반</span><span class="mt2">임상 권위</span><span class="mt2">명확한</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">신뢰</span><span class="mt2">선택의 확신</span></div></div>
-      </div>
-    </div>
-
-    <!-- 04 -->
-    <div class="card">
-      <span class="card-num">04</span>
-      <div class="card-title">레몬을 선택한 이유</div>
-      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span><span class="ctag tag-vp">Vegan-Proven</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"R&D 선택의 근거를 수치로 보여주는 브랜드"</div><div class="tone-mini-s">어렵지 않게, 그러나 깊이 있게.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">식물 엑소좀 후보군 비교 끝에 도달한 결과</div>
-        <div class="cv-sns">수많은 식물 중 레몬에 도달했습니다. 우연이 아니었습니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> "왜 이 성분인가"를 궁금해하는 소비자</div>
-        <div class="sw-row"><span>무엇을</span> 수많은 식물 중 레몬 엑소좀에 도달한 과학적 이유를</div>
-        <div class="sw-row"><span>언제</span> 브랜드 성분 교육 흐름 안에서</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 캐러셀</div>
-        <div class="sw-row"><span>왜</span> 레몬이 브랜드명이자 핵심 성분 — 선택의 명분이 곧 브랜드 신뢰이기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> "우연이 아니었습니다"로 시작해 성분 비교 데이터를 하나씩 보여준다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">레몬 단면 매크로</span><span class="mt2">옐로우 + 화이트</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">서사적</span><span class="mt2">데이터 기반</span><span class="mt2">지적 호기심</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">궁금증 해소</span><span class="mt2">신뢰</span></div></div>
-      </div>
-    </div>
-
-    <!-- 05 -->
-    <div class="card">
-      <span class="card-num">05</span>
-      <div class="card-title">예민함이 기준입니다</div>
-      <div class="card-tags"><span class="ctag tag-sf">Sensitive-First</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"가장 까다로운 피부를 기준으로 설계된 브랜드"</div><div class="tone-mini-s">예민성 피부 임상 결과가 모든 피부에 통하는 이유.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">예민함은 한계가 아니라, 우리의 기준점입니다</div>
-        <div class="cv-sns">우리의 기준은 가장 예민한 피부입니다 — 당신이 그 기준입니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> 스킨케어 제품마다 트러블이 나서 지쳐있는 소비자</div>
-        <div class="sw-row"><span>무엇을</span> 레몬더마가 예민성 피부를 기준으로 설계됐다는 것을 — 수치로</div>
-        <div class="sw-row"><span>언제</span> 브랜드 감성 공감 콘텐츠 주기</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 피드 싱글 이미지</div>
-        <div class="sw-row"><span>왜</span> "가장 까다로운 피부에서 시작했기에 모든 피부에 통한다"가 브랜드 미션이기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> 소비자의 감정을 먼저 인정하고, 예민성 피부 임상 결과로 닫는다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">여백 강조</span><span class="mt2">따뜻한 옐로우</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">조용한 선언</span><span class="mt2">수치로 뒷받침</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">안도</span><span class="mt2">소속감</span></div></div>
-      </div>
-    </div>
-
-    <!-- 06 -->
-    <div class="card">
-      <span class="card-num">06</span>
-      <div class="card-title">비건 더마가 일하는 소리</div>
-      <div class="card-tags"><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-sf">Sensitive-First</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"피부가 반응하는 순간을 수치로 설명하는 브랜드"</div><div class="tone-mini-s">느껴지는 것을 과학으로 해석해주는.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">Sensation은 mechanical — "Feel the active" / Burn 아님</div>
-        <div class="cv-sns">피부가 반응한다는 건 성분이 실제로 작동한다는 겁니다. 레몬더마가 그걸 데이터로 보여줍니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> 세럼 사용 후 "이게 효과 있는 건지, 자극인 건지" 헷갈리는 소비자</div>
-        <div class="sw-row"><span>무엇을</span> 피부가 느끼는 반응이 비건 더마가 작동하는 신호임을</div>
-        <div class="sw-row"><span>언제</span> 구매 후 첫 사용 단계 / 신규 소비자 온보딩</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 릴스 + 스토리</div>
-        <div class="sw-row"><span>왜</span> "반응 = 작동"이라는 프레임이 재구매로 이어지는 핵심 인식이기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> 사용 클로즈업 영상 + 성분 작용 수치 오버레이로 "이게 비건 더마가 일하는 소리"로 닫는다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">세럼 텍스처 클로즈업</span><span class="mt2">수치 오버레이</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">피부 반응 서사</span><span class="mt2">데이터 기반</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">확신</span><span class="mt2">작동감</span></div></div>
-      </div>
-    </div>
-
-    <!-- 07 -->
-    <div class="card">
-      <span class="card-num">07</span>
-      <div class="card-title">예민한 피부의 문제를 해결하는 브랜드</div>
-      <div class="card-tags"><span class="ctag tag-cb">Clinic-Born</span><span class="ctag tag-vp">Vegan-Proven</span><span class="ctag tag-sf">Sensitive-First</span></div>
-      <div class="tone-mini"><div class="tone-mini-q">"오래된 피부 문제를 임상으로 해결하는 브랜드"</div><div class="tone-mini-s">선언이 아니라 결과로 말하는.</div></div>
-      <hr class="card-divider">
-      <div class="card-sec">3대 가치 전환</div>
-      <div class="card-val">
-        <div class="cv-brand">Resolving — 막힌 곳을 뚫다, 매듭을 풀다</div>
-        <div class="cv-sns">예민한 피부가 오래 풀지 못했던 문제, 레몬더마는 그걸 실제로 해결합니다</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">육하원칙</div>
-      <div class="card-sw">
-        <div class="sw-row"><span>누가</span> 레몬더마를 아는 소비자부터 처음 만나는 잠재 소비자까지</div>
-        <div class="sw-row"><span>무엇을</span> 레몬더마가 예민한 피부의 실질적 문제를 해결하는 브랜드임을</div>
-        <div class="sw-row"><span>언제</span> 브랜드 비전 환기 / 분기 1회 브랜드 필름</div>
-        <div class="sw-row"><span>어디서</span> 인스타그램 피드 + 릴스 30초</div>
-        <div class="sw-row"><span>왜</span> 모든 콘텐츠의 뿌리가 되는 브랜드 해결사 포지션을 주기적으로 환기해야 하기 때문에</div>
-        <div class="sw-row"><span>어떻게</span> 오래된 피부 문제 → 레몬더마의 임상 결과 → 해결된 피부의 3막 구조</div>
-      </div>
-      <hr class="card-divider">
-      <div class="card-sec">무드 키워드</div>
-      <div class="mood3">
-        <div class="mblk"><div class="mblk-label">시각</div><div class="mtags2"><span class="mt2">before→after 데이터</span><span class="mt2">옐로우→화이트</span></div></div>
-        <div class="mblk"><div class="mblk-label">언어</div><div class="mtags2"><span class="mt2">결과 중심</span><span class="mt2">임상 수치</span><span class="mt2">서사적</span></div></div>
-        <div class="mblk"><div class="mblk-label">감정</div><div class="mtags2"><span class="mt2">해결감</span><span class="mt2">신뢰</span><span class="mt2">브랜드 귀속감</span></div></div>
-      </div>
-    </div>
-
-  </div>
+<div class="fixed-bar">
+  <span class="fixed-item"><span class="fixed-label">고정</span> <strong>어디서</strong> 인스타그램에서</span>
+  <span class="fixed-item"><span class="fixed-label">고정</span> <strong>무엇을</strong> 레몬더마 세럼/크림을</span>
+  <span class="fixed-item"><span class="fixed-label">고정</span> <strong>언제</strong> 일주일에 5번</span>
 </div>
-</div>
+
+<div class="grid" id="grid"></div>
 
 <script>
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const grid = document.querySelector('.cards-grid');
-      if (card.classList.contains('focused')) {
-        card.classList.remove('focused');
-        grid.classList.remove('has-focus');
-      } else {
-        document.querySelectorAll('.card.focused').forEach(c => c.classList.remove('focused'));
-        card.classList.add('focused');
-        grid.classList.add('has-focus');
-      }
-    });
+const data = [
+  // 01-10 과학/데이터
+  {t:"당신 편에 선 과학자", who:"레몬더마 과학자가", how:"소비자 피부 문제(주름·색소침착)에 공감하며 → 원료·데이터·수치로 해결하는 방식으로", why:"문제를 정확히 파악하고 해결하기 위해"},
+  {t:"임상 수치로 말하다", who:"레몬더마 R&D팀이", how:"피부 개선 임상 결과(21.4%·31.8%)를 그래프·비포어애프터로 시각화해서", why:"제품 효능을 숫자로 증명하기 위해"},
+  {t:"성분표 읽어드립니다", who:"레몬더마 성분 연구원이", how:"복잡한 성분표를 쉬운 언어로 풀어 핵심 3가지만 설명하는 방식으로", why:"성분 고관여 소비자의 신뢰를 얻기 위해"},
+  {t:"레몬 엑소좀 해부학", who:"레몬더마 과학자가", how:"레몬 엑소좀이 피부에 침투하는 메커니즘을 인포그래픽으로 시각화해서", why:"성분 작동 원리로 선택 확신을 주기 위해"},
+  {t:"클리닉 데이터 공개", who:"레몬더마 클리닉 파트너가", how:"52개국 클리닉 납품 데이터와 피부과 처방 이유를 공개하는 방식으로", why:"병원급 신뢰를 소비자에게 전달하기 위해"},
+  {t:"비건인데 왜 효과 있어?", who:"레몬더마 비건 전문가가", how:"비건=효과없다는 공식을 데이터로 정면 반박하는 캐러셀로", why:"비건 스킨케어 편견을 깨고 소비전환을 위해"},
+  {t:"피부과 선생님이 쓰는 이유", who:"레몬더마 클리닉 파트너가", how:"피부과 전문의가 추천하는 이유를 인터뷰 형식으로", why:"의료 신뢰를 브랜드 신뢰로 연결하기 위해"},
+  {t:"2주·4주·8주 변화", who:"레몬더마 R&D팀이", how:"사용 2주·4주·8주 변화를 수치 타임라인으로 보여주는 방식으로", why:"장기 효과를 시각화해 재구매를 유도하기 위해"},
+  {t:"이 성분 하나가 다르다", who:"레몬더마 성분 연구원이", how:"비건 마이크로크리스탈 10,000ppm vs 시장 평균 4,000ppm 비교를 임팩트 있게 시각화해서", why:"성분 우위를 명확히 각인시키기 위해"},
+  {t:"실험실에서 피부까지", who:"레몬더마 과학자가", how:"R&D 연구 과정부터 제품 완성까지의 여정을 다큐 스타일로", why:"브랜드 진정성과 기술력을 동시에 보여주기 위해"},
+  // 11-20 감성/공감
+  {t:"예민한 피부의 편", who:"레몬더마 피부 케어 코치가", how:"예민성 피부 소비자의 좌절감에 깊이 공감하는 스토리텔링으로", why:"감정적 연결로 브랜드 신뢰를 쌓기 위해"},
+  {t:"또 실패한 게 아니에요", who:"레몬더마 브랜드가", how:"수많은 제품에 실망한 소비자의 경험을 먼저 인정하고 위로하는 방식으로", why:"공감을 통해 브랜드 친밀감을 높이기 위해"},
+  {t:"피부가 보내는 신호", who:"레몬더마 피부 케어 코치가", how:"피부 트러블 신호를 의미 있게 해석하고 레몬더마 해결책으로 연결하는 방식으로", why:"문제 인식을 환기하고 구매 동기를 만들기 위해"},
+  {t:"민감한 피부도 빛날 수 있어", who:"레몬더마 스킨케어 큐레이터가", how:"예민성 피부 소비자의 성공 사례를 감성적으로 재현하는 방식으로", why:"공감과 희망을 전달해 소비전환을 이끌기 위해"},
+  {t:"피부가 달라지는 순간", who:"레몬더마 고객팀이", how:"실제 고객의 처음으로 달라졌다는 순간을 생생하게 재현하는 방식으로", why:"진정성 있는 변화 스토리로 신뢰를 구축하기 위해"},
+  {t:"당신 피부를 믿어요", who:"레몬더마 브랜드가", how:"소비자 피부의 회복력을 신뢰하며 레몬더마가 그 옆에 있다는 메시지를 감성적으로", why:"브랜드 철학으로 장기 팬덤을 형성하기 위해"},
+  {t:"루틴의 이유", who:"레몬더마 피부 케어 코치가", how:"왜 꾸준히 써야 하는지를 피부 사이클 과학으로 쉽게 설명하는 방식으로", why:"루틴 유지 동기를 부여해 재구매율을 높이기 위해"},
+  {t:"스킨케어를 포기하려 했다면", who:"레몬더마 브랜드가", how:"스킨케어에 지쳐 포기하려는 순간의 감정을 공감하고 새로운 선택지를 제안하는 방식으로", why:"이탈 직전 소비자를 붙잡기 위해"},
+  {t:"처음 써보는 사람에게", who:"레몬더마 스킨케어 큐레이터가", how:"레몬더마를 처음 접하는 소비자를 위한 친절한 온보딩 가이드를 감성적으로", why:"첫 구매 전환을 높이기 위해"},
+  {t:"피부 이야기 4컷", who:"레몬더마 고객팀이", how:"다양한 피부 고민을 가진 소비자 이야기를 4컷 만화 스타일로", why:"공감대 형성과 제품 신뢰를 동시에 얻기 위해"},
+  // 21-30 교육/정보
+  {t:"레몬 고른 이유", who:"레몬더마 창업자가", how:"수백 가지 식물성 원료 중 레몬에 도달한 R&D 결정 과정을 스토리텔링으로", why:"브랜드 철학과 기술력을 동시에 전달하기 위해"},
+  {t:"엑소좀이 뭐예요?", who:"레몬더마 성분 연구원이", how:"엑소좀의 개념과 피부 효능을 누구나 이해하는 언어로 시각화해서", why:"성분 장벽을 낮추고 신규 소비자를 유입하기 위해"},
+  {t:"세럼 vs 크림, 뭐가 달라요?", who:"레몬더마 스킨케어 큐레이터가", how:"두 제품의 역할 차이를 열다·잠그다 프레임으로 명확하게 설명하는 방식으로", why:"2-step 루틴을 이해시켜 크로스셀을 유도하기 위해"},
+  {t:"마이크로크리스탈 원리", who:"레몬더마 성분 연구원이", how:"마이크로크리스탈이 피부 마이크로패스웨이를 여는 물리적 원리를 애니메이션처럼 설명해서", why:"작동 원리 이해로 제품 신뢰를 높이기 위해"},
+  {t:"K-Pharmacy란 무엇인가", who:"레몬더마 브랜드가", how:"K-뷰티와 K-Pharmacy의 차이를 명확히 구분하는 교육 콘텐츠로", why:"카테고리 포지셔닝을 소비자에게 각인시키기 위해"},
+  {t:"피부 장벽 공부하기", who:"레몬더마 피부 케어 코치가", how:"피부 장벽이 무너지는 이유와 레몬더마 크림이 회복시키는 메커니즘을 설명하는 방식으로", why:"제품 필요성을 과학적으로 인식시키기 위해"},
+  {t:"레티놀 vs 레몬 엑소좀", who:"레몬더마 성분 연구원이", how:"레티놀과 레몬 엑소좀의 효능·안전성을 나란히 비교하는 인포그래픽으로", why:"성분 전환 소비자를 레몬더마로 유입하기 위해"},
+  {t:"ISO 22716 인증 풀이", who:"레몬더마 R&D팀이", how:"ISO 22716이 무엇인지, 소비자에게 무슨 의미인지를 쉽게 설명하는 방식으로", why:"제조 신뢰도를 소비자 언어로 전달하기 위해"},
+  {t:"글로벌 클리닉 공급의 의미", who:"레몬더마 클리닉 파트너가", how:"52개국 클리닉 납품이 일반 화장품과 어떻게 다른지를 비교 설명하는 방식으로", why:"전문 신뢰 기반으로 프리미엄 포지셔닝을 강화하기 위해"},
+  {t:"EWG 그린 등급 이해하기", who:"레몬더마 비건 전문가가", how:"EWG 그린 등급의 의미와 레몬더마 성분이 해당하는 이유를 설명하는 방식으로", why:"안전성 지표로 구매 확신을 높이기 위해"},
+  // 31-40 라이프스타일/루틴
+  {t:"아침 루틴에 넣어봤어요", who:"레몬더마 스킨케어 큐레이터가", how:"세럼+크림을 아침 루틴에 자연스럽게 녹인 리얼 라이프 GRWM 스타일로", why:"루틴 편입 장벽을 낮춰 첫 구매를 유도하기 위해"},
+  {t:"저녁 루틴의 마지막 단계", who:"레몬더마 스킨케어 큐레이터가", how:"저녁 스킨케어 마무리로 레몬더마 크림을 자리잡게 하는 GRWM 콘텐츠로", why:"야간 루틴 고정 포지션을 선점하기 위해"},
+  {t:"메이크업 전 베이스 케어", who:"레몬더마 피부 케어 코치가", how:"레몬더마 크림이 메이크업 베이스로 완벽한 이유를 실제 피부 텍스처와 함께 설명하는 방식으로", why:"기존 루틴에 자연스럽게 편입시키기 위해"},
+  {t:"여행 스킨케어 꿀조합", who:"레몬더마 스킨케어 큐레이터가", how:"여행 중 최소한의 스킨케어를 레몬더마 2종으로 완성하는 팁을 감성 여행 비주얼로", why:"여행 시즌 소비전환을 유도하기 위해"},
+  {t:"환절기 피부 대비", who:"레몬더마 피부 케어 코치가", how:"환절기 피부 변화 신호와 레몬더마 2-step 루틴으로 대응하는 가이드를 시의성 있게", why:"계절별 구매 타이밍을 잡아 전환을 높이기 위해"},
+  {t:"직장인 5분 루틴", who:"레몬더마 브랜드가", how:"바쁜 직장인이 5분 안에 완성하는 레몬더마 루틴을 경쾌하게", why:"시간 장벽을 제거해 루틴 진입을 쉽게 하기 위해"},
+  {t:"자기 전 10분 피부 투자", who:"레몬더마 스킨케어 큐레이터가", how:"자기 전 10분을 레몬더마 루틴에 투자하는 가치를 감성적으로 설명하는 방식으로", why:"야간 루틴 습관 형성으로 재구매를 유도하기 위해"},
+  {t:"피부과 가기 전에 해볼 것", who:"레몬더마 클리닉 파트너가", how:"피부과 방문 전 시도해볼 수 있는 예민성 피부 케어 루틴을 제안하는 방식으로", why:"구매 결정 단계에서 선택지를 제시하기 위해"},
+  {t:"주말 집중 케어 루틴", who:"레몬더마 피부 케어 코치가", how:"주말 홈케어 루틴에서 레몬더마 2-step이 핵심이 되는 방식을 릴랙스드 무드로", why:"주말 루틴 포지션을 선점하기 위해"},
+  {t:"세럼 처음 쓰는 분께", who:"레몬더마 스킨케어 큐레이터가", how:"세럼을 처음 사용하는 소비자를 위한 단계별 사용법을 친절하게 안내하는 방식으로", why:"입문자의 첫 구매 전환을 높이기 위해"},
+  // 41-50 비교/포지셔닝
+  {t:"레몬더마 vs 일반 비건", who:"레몬더마 R&D팀이", how:"클리닉 유래 vs 화장품 연구소 출발을 나란히 비교하는 인포그래픽으로", why:"차별화된 기술 배경을 소비자에게 각인시키기 위해"},
+  {t:"비건인데 효과 있는 이유", who:"레몬더마 비건 전문가가", how:"비건 스킨케어가 효과 없다는 오해를 구체적 데이터로 반박하는 직접적인 방식으로", why:"비건 카테고리 편견을 깨고 전환을 이끌기 위해"},
+  {t:"Marine-free가 다른 이유", who:"레몬더마 비건 전문가가", how:"해양 유래 스피큘과 비건 마이크로크리스탈의 차이를 성분 관점에서 설명하는 방식으로", why:"진짜 비건을 원하는 소비자를 확실히 잡기 위해"},
+  {t:"$28에 클리닉급 케어", who:"레몬더마 브랜드가", how:"클리닉 엑소좀 트리트먼트 비용과 레몬더마 가격을 가치 비교하는 방식으로", why:"가성비 인식을 형성해 구매 결정을 촉진하기 위해"},
+  {t:"K-뷰티와 다른 점 하나", who:"레몬더마 창업자가", how:"레몬더마가 일반 K-뷰티 트렌드 제품과 근본적으로 다른 이유를 창업자 관점으로", why:"프리미엄 포지셔닝을 강화하기 위해"},
+  {t:"레티놀 대신 이걸로", who:"레몬더마 성분 연구원이", how:"레티놀 자극이 두려운 소비자에게 레몬 엑소좀이 더 나은 대안인 이유를 설명하는 방식으로", why:"레티놀 이탈 소비자를 유입하기 위해"},
+  {t:"AHA/BHA 없이도 됩니다", who:"레몬더마 비건 전문가가", how:"각질 케어를 AHA/BHA 없이 마이크로크리스탈로 가능하게 하는 원리를 쉽게 설명해서", why:"자극 성분 기피 소비자를 전환하기 위해"},
+  {t:"왜 COSMAX에서 만드나요", who:"레몬더마 R&D팀이", how:"글로벌 1위 ODM COSMAX 제조의 의미를 소비자 언어로 풀어 설명하는 방식으로", why:"제조 품질에 대한 신뢰를 심어주기 위해"},
+  {t:"GMP 인증이 뭔지 알아요?", who:"레몬더마 성분 연구원이", how:"GMP 인증의 실질적 의미를 일상 언어로 쉽게 설명하는 교육 콘텐츠로", why:"제조 기준 이해로 신뢰를 높이기 위해"},
+  {t:"세럼 하나로 이게 다 돼?", who:"레몬더마 스킨케어 큐레이터가", how:"레몬더마 세럼이 글로우·모공·안티에이징을 동시에 해결하는 이유를 캐러셀로", why:"멀티 효능 인식으로 구매 합리화를 돕기 위해"},
+  // 51-60 소비자 이야기
+  {t:"주름이 걱정됐어요", who:"레몬더마 고객팀이", how:"안티에이징이 고민인 소비자의 실제 사용 후기를 재구성한 스토리텔링으로", why:"유사한 고민을 가진 소비자의 공감과 전환을 유도하기 위해"},
+  {t:"색소침착 때문에 고민했어요", who:"레몬더마 고객팀이", how:"색소침착 고민 소비자의 레몬더마 사용 전후 경험을 진정성 있게", why:"특정 피부 고민을 가진 소비자의 소비전환을 이끌기 위해"},
+  {t:"모공이 신경 쓰였는데", who:"레몬더마 고객팀이", how:"모공 케어를 원하던 소비자가 레몬더마 세럼으로 변화를 경험한 스토리를", why:"모공 고민 소비자를 구체적으로 타겟팅하기 위해"},
+  {t:"건조함이 심했어요", who:"레몬더마 고객팀이", how:"극건성 피부 소비자가 레몬더마 크림으로 수분을 되찾은 경험을 감성적으로", why:"건성 피부 소비자의 공감과 전환을 위해"},
+  {t:"트러블이 계속 났어요", who:"레몬더마 고객팀이", how:"반복 트러블로 지쳐있던 소비자의 레몬더마 전환 스토리를", why:"트러블 피부 소비자를 정확히 타겟팅하기 위해"},
+  {t:"30대 피부 관리 시작", who:"레몬더마 스킨케어 큐레이터가", how:"30대 피부 변화가 시작되는 시점에서 레몬더마를 선택한 이야기를 연령대 맞춤으로", why:"30대 신규 소비자 유입을 위해"},
+  {t:"40대 피부의 반전", who:"레몬더마 피부 케어 코치가", how:"40대 소비자가 레몬더마로 피부 반전을 경험한 스토리를 진정성 있게", why:"구매력 높은 40대 소비자를 타겟팅하기 위해"},
+  {t:"예민함이 강점이 됐어요", who:"레몬더마 브랜드가", how:"예민한 피부를 가진 소비자가 레몬더마로 피부 관리 전문가가 된 스토리를", why:"예민성 피부 소비자에게 자신감을 심어주기 위해"},
+  {t:"남자도 써도 되나요?", who:"레몬더마 스킨케어 큐레이터가", how:"남성 소비자가 레몬더마를 처음 시도한 경험을 자연스러운 남성 뷰티 무드로", why:"남성 소비자 유입을 확대하기 위해"},
+  {t:"선물로 받았어요", who:"레몬더마 브랜드가", how:"레몬더마를 선물로 처음 받아 사용하게 된 소비자의 발견 스토리를 따뜻하게", why:"선물 소비와 신규 유입을 동시에 유도하기 위해"},
+  // 61-70 시즌/캠페인
+  {t:"여름 피부 준비", who:"레몬더마 피부 케어 코치가", how:"여름철 자외선 데미지와 피지 증가에 대비하는 레몬더마 루틴을 시즌 감성으로", why:"여름 시즌 구매 전환을 높이기 위해"},
+  {t:"겨울 건조 피부 대책", who:"레몬더마 피부 케어 코치가", how:"겨울 극건조 환경에서 레몬더마 크림의 보습 배리어 효과를 시즌에 맞게 강조해서", why:"겨울 시즌 구매 전환을 유도하기 위해"},
+  {t:"새해 첫 스킨케어 루틴", who:"레몬더마 브랜드가", how:"새해 피부 목표를 레몬더마로 시작하는 다짐 캠페인을 감성적으로", why:"연초 신규 구매 동기를 만들기 위해"},
+  {t:"봄 피부 리셋", who:"레몬더마 스킨케어 큐레이터가", how:"봄철 피부 리셋과 함께 레몬더마 루틴을 새로 시작하는 가이드를 산뜻하게", why:"봄 시즌 신규 소비자 전환을 위해"},
+  {t:"기념일 선물 가이드", who:"레몬더마 브랜드가", how:"생일·기념일 선물로 레몬더마를 선택해야 하는 이유를 프리미엄 감성으로", why:"선물 시즌 매출을 높이기 위해"},
+  {t:"발렌타인 피부 선물", who:"레몬더마 스킨케어 큐레이터가", how:"피부 선물로 마음을 전하는 레몬더마 기념일 캠페인을 로맨틱하게", why:"시즌 선물 소비를 유도하기 위해"},
+  {t:"블랙프라이데이 전 피부 투자", who:"레몬더마 브랜드가", how:"블랙프라이데이 할인 전 레몬더마를 미리 알아야 하는 이유를 설득력 있게", why:"할인 시즌 구매 전환을 최대화하기 위해"},
+  {t:"졸업·취업 선물 추천", who:"레몬더마 고객팀이", how:"졸업·취업을 앞둔 사람에게 레몬더마가 의미 있는 선물인 이유를 따뜻하게", why:"시즌 선물 소비 유입을 위해"},
+  {t:"30일 루틴 챌린지", who:"레몬더마 브랜드가", how:"30일 레몬더마 루틴 챌린지를 소비자 참여형으로 설계한 캠페인 런칭으로", why:"커뮤니티 참여로 재구매와 팔로워 성장을 동시에 위해"},
+  {t:"어버이날 피부 선물", who:"레몬더마 고객팀이", how:"부모님 피부를 걱정하는 자녀 소비자를 타겟으로 한 가족 감성 캠페인으로", why:"패밀리 소비 확대와 선물 매출 향상을 위해"},
+  // 71-80 제품 기능
+  {t:"세럼이 열고 크림이 잠근다", who:"레몬더마 R&D팀이", how:"SERUM OPENS, CREAM SEALS 2-step 원리를 과학적으로 시각화해서", why:"번들 구매를 자연스럽게 유도하기 위해"},
+  {t:"1방울의 힘", who:"레몬더마 성분 연구원이", how:"세럼 1방울에 담긴 성분 농도와 효능을 매크로 이미지로 임팩트 있게 시각화해서", why:"제품 가치를 극적으로 전달해 소비전환을 이끌기 위해"},
+  {t:"텍스처가 말해주는 것", who:"레몬더마 스킨케어 큐레이터가", how:"세럼·크림의 독특한 텍스처가 성능을 의미하는 이유를 감각적으로 설명하는 방식으로", why:"오감으로 제품 가치를 느끼게 해 구매 욕구를 자극하기 위해"},
+  {t:"향기도 이유가 있어요", who:"레몬더마 성분 연구원이", how:"레몬 자연 향이 성분에서 비롯되는 이유를 성분 설명과 함께", why:"제품 감각 경험에 과학적 이유를 부여해 신뢰를 높이기 위해"},
+  {t:"흡수 속도의 비밀", who:"레몬더마 R&D팀이", how:"레몬더마 세럼이 빠르게 흡수되는 물리적 원리를 마이크로패스웨이 개념으로 설명해서", why:"사용감의 과학적 근거를 이해시켜 재구매를 유도하기 위해"},
+  {t:"논코메도제닉 설계", who:"레몬더마 성분 연구원이", how:"모공 막힘 없이 설계된 레몬더마 포뮬러의 원리를 지성·복합성 피부 관점으로", why:"모공 민감 소비자의 구매 장벽을 제거하기 위해"},
+  {t:"세럼 적정 사용량 가이드", who:"레몬더마 피부 케어 코치가", how:"효과를 최대화하는 세럼 사용량과 레이어링 순서를 명확하게 가이드하는 방식으로", why:"올바른 사용으로 만족도를 높여 재구매를 유도하기 위해"},
+  {t:"크림 마무리가 중요한 이유", who:"레몬더마 피부 케어 코치가", how:"세럼만으로 끝내는 것과 크림으로 마무리하는 것의 차이를 비포어애프터로", why:"크림 추가 구매를 자연스럽게 유도하기 위해"},
+  {t:"GMP 제조 공정 이야기", who:"레몬더마 R&D팀이", how:"COSMAX GMP 공정에서 레몬더마가 만들어지는 과정을 투명하게 공개하는 방식으로", why:"제조 투명성으로 브랜드 신뢰를 구축하기 위해"},
+  {t:"처음 쓸 때 느낌 가이드", who:"레몬더마 고객팀이", how:"처음 사용 시 경험할 수 있는 작동감을 미리 설명하고 안심시키는 방식으로", why:"초기 사용 이탈을 방지하고 루틴 형성을 돕기 위해"},
+  // 81-90 커뮤니티/인플루언서
+  {t:"스킨케어 덕후 추천", who:"레몬더마 스킨케어 큐레이터가", how:"스킨케어 고관여 소비자 관점에서 성분과 효능을 딥하게 리뷰하는 방식으로", why:"성분 덕후 커뮤니티를 통해 신뢰를 확산하기 위해"},
+  {t:"뷰티 크리에이터 협업", who:"레몬더마 브랜드가", how:"공신력 있는 뷰티 크리에이터와 함께 레몬더마 사용 경험을 자연스럽게 보여주는 방식으로", why:"신규 팔로워 유입과 소비전환을 동시에 이루기 위해"},
+  {t:"피부과 전문의 Q&A", who:"레몬더마 클리닉 파트너가", how:"예민성 피부 관련 소비자 질문에 피부과 전문의가 답변하며 레몬더마를 언급하는 방식으로", why:"의료 권위를 활용해 브랜드 신뢰를 높이기 위해"},
+  {t:"레몬더마 써클 멤버 이야기", who:"레몬더마 고객팀이", how:"레몬더마 커뮤니티 멤버들의 피부 변화 스토리를 모아 소개하는 방식으로", why:"커뮤니티 소속감과 신규 가입 동기를 만들기 위해"},
+  {t:"팔로워 Q&A 라이브", who:"레몬더마 브랜드가", how:"소비자 질문에 실시간으로 답변하며 성분과 효능을 설명하는 라이브 형식으로", why:"인터랙션을 높이고 구매 결정을 직접 지원하기 위해"},
+  {t:"#레몬더마챌린지", who:"레몬더마 브랜드가", how:"소비자가 직접 참여하는 루틴 챌린지를 해시태그 캠페인으로 론칭해서", why:"UGC 생성과 팔로워 성장을 동시에 달성하기 위해"},
+  {t:"리뷰 리그램", who:"레몬더마 고객팀이", how:"진정성 있는 소비자 리뷰를 공식 계정에서 리그램하며 신뢰를 전달하는 방식으로", why:"소셜 증거를 활용해 소비전환을 높이기 위해"},
+  {t:"DM 질문 베스트 5", who:"레몬더마 고객팀이", how:"소비자들이 자주 DM으로 묻는 질문 TOP5를 솔직하게 답변하는 콘텐츠로", why:"구매 장벽이 되는 의문을 해소해 전환을 높이기 위해"},
+  {t:"비건 라이프스타일 커뮤니티", who:"레몬더마 비건 전문가가", how:"비건 라이프스타일을 실천하는 소비자 커뮤니티와 레몬더마의 가치관 일치를 감성적으로", why:"비건 커뮤니티 내 브랜드 인지도를 높이기 위해"},
+  {t:"해외 소비자 반응 공유", who:"레몬더마 브랜드가", how:"미국·태국·UAE 소비자들의 레몬더마 반응을 모아 글로벌 신뢰를 보여주는 방식으로", why:"글로벌 브랜드 위상을 강조해 소비자 자부심을 높이기 위해"},
+  // 91-100 브랜드 비전
+  {t:"창업 이유를 말합니다", who:"레몬더마 창업자가", how:"레몬더마가 탄생한 진짜 이유를 창업자 관점의 진솔한 이야기로", why:"브랜드 진정성을 전달해 장기 팬덤을 형성하기 위해"},
+  {t:"우리가 안 쓰는 것", who:"레몬더마 비건 전문가가", how:"No retinol·No AHA/BHA·No marine sponge를 선언하며 브랜드 철학을 명확히 하는 방식으로", why:"안전 기준으로 신뢰와 차별화를 동시에 달성하기 위해"},
+  {t:"52개국 클리닉이 선택했다", who:"레몬더마 클리닉 파트너가", how:"전 세계 클리닉이 지셸바이오그룹 엑소좀을 선택한 이유를 글로벌 데이터로 보여주는 방식으로", why:"글로벌 임상 신뢰를 소비자에게 전달하기 위해"},
+  {t:"레몬더마가 생각하는 피부", who:"레몬더마 창업자가", how:"브랜드가 피부에 대해 가진 철학과 가치관을 에세이 형식으로 감성적으로", why:"브랜드 세계관을 소비자와 공유해 팬덤을 강화하기 위해"},
+  {t:"투명한 브랜드", who:"레몬더마 R&D팀이", how:"전성분·제조 과정·임상 데이터를 모두 공개하는 투명성 선언으로", why:"정보 공개로 신뢰를 구축하고 고관여 소비자를 확보하기 위해"},
+  {t:"MFDS 이중기능성 의미", who:"레몬더마 R&D팀이", how:"식약처 미백+주름개선 이중기능성 인증이 소비자에게 무엇을 보장하는지 설명하는 방식으로", why:"공식 인증으로 효능 신뢰도를 높이기 위해"},
+  {t:"예민한 피부에 쓴 이유", who:"레몬더마 창업자가", how:"가장 어려운 피부 조건을 기준으로 제품을 설계한 창업 철학을 진솔하게", why:"브랜드 미션 공유로 소비자 신뢰를 깊게 하기 위해"},
+  {t:"글로벌 진출 이야기", who:"레몬더마 창업자가", how:"미국·태국·UAE로 확장해가는 레몬더마의 여정을 브랜드 다큐 스타일로", why:"글로벌 위상을 높여 소비자 자부심을 형성하기 위해"},
+  {t:"소비자가 바꾼 제품", who:"레몬더마 R&D팀이", how:"소비자 피드백을 실제 제품 개선에 반영한 사례를 투명하게 공유하는 방식으로", why:"소비자 중심 브랜드 이미지를 강화하기 위해"},
+  {t:"레몬더마가 있어서", who:"레몬더마 브랜드가", how:"레몬더마로 인해 달라진 소비자 피부 이야기를 100번째 기획으로 감동적으로", why:"브랜드 존재 이유를 다시 한번 선언하고 팬덤을 결집하기 위해"},
+];
+
+const grid = document.getElementById('grid');
+
+data.forEach((d, i) => {
+  const num = String(i + 1).padStart(2, '0');
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <span class="card-num">${num}</span>
+    <div class="card-title">${d.t}</div>
+    <hr class="card-divider">
+    <div class="row"><b>누가</b> ${d.who}</div>
+    <div class="row"><b>어떻게</b> ${d.how}</div>
+    <div class="row"><b>왜</b> ${d.why}</div>
+  `;
+  card.addEventListener('click', () => {
+    if (card.classList.contains('focused')) {
+      card.classList.remove('focused');
+      grid.classList.remove('has-focus');
+    } else {
+      document.querySelectorAll('.card.focused').forEach(c => c.classList.remove('focused'));
+      card.classList.add('focused');
+      grid.classList.add('has-focus');
+    }
   });
+  grid.appendChild(card);
+});
 </script>
+
 </body>
 </html>
