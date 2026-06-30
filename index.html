@@ -118,6 +118,18 @@
   }
   #toggleArrow { margin-left: auto; font-size: 11px; color: var(--gray-text); transition: transform 0.2s; }
   #toggleArrow.open { transform: rotate(180deg); }
+  .toggle-header-sns { border-color: var(--yellow); background: #fffde8; }
+  .toggle-header-sns:hover { background: #fff9c4; }
+  #snsCount {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--gray-text);
+    background: var(--yellow);
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  #snsArrow { margin-left: auto; font-size: 11px; color: var(--gray-text); transition: transform 0.2s; }
+  #snsArrow.open { transform: rotate(180deg); }
 
   @media (max-width: 1400px) { .grid { grid-template-columns: repeat(5, 1fr); } }
   @media (max-width: 800px) { .grid { grid-template-columns: repeat(3, 1fr); } }
@@ -145,6 +157,15 @@
     <span id="toggleArrow">▼</span>
   </div>
   <div class="grid" id="hiddenGrid" style="display:none;margin-top:12px"></div>
+</div>
+
+<div class="toggle-wrap" id="snsWrap" style="display:none">
+  <div class="toggle-header toggle-header-sns" id="snsBtn">
+    <span id="snsLabel">SNS 게시글로 활용</span>
+    <span id="snsCount"></span>
+    <span id="snsArrow">▼</span>
+  </div>
+  <div class="grid" id="snsGrid" style="display:none;margin-top:12px"></div>
 </div>
 
 <script>
@@ -311,14 +332,20 @@ const data = [
   {t:"그 자리에 레몬더마", who:"레몬더마 브랜드가", how:"자연과 과학이 만나는 바로 그 지점에 레몬더마가 있다는 브랜드 선언을 임팩트 있는 비주얼과 함께", why:"슬로건을 소비자 마음에 완전히 각인시키고 소비전환을 이끌기 위해"},
 ];
 
-const FEATURED = new Set([0,11,12,20,21,25,30,37,41,44,59,79,80,85,87,90]);
+const FEATURED = new Set([0,11,12,20,21,25,30,37,41,44,59,80,90]);
+const SNS_PICKS = new Set([79, 85, 87]);
 
 const mainGrid = document.getElementById('grid');
 const hiddenGrid = document.getElementById('hiddenGrid');
+const snsGrid = document.getElementById('snsGrid');
 const toggleWrap = document.getElementById('toggleWrap');
 const toggleBtn = document.getElementById('toggleBtn');
 const toggleArrow = document.getElementById('toggleArrow');
 const toggleCount = document.getElementById('toggleCount');
+const snsWrap = document.getElementById('snsWrap');
+const snsBtn = document.getElementById('snsBtn');
+const snsArrow = document.getElementById('snsArrow');
+const snsCount = document.getElementById('snsCount');
 
 function makeCard(d, i, targetGrid) {
   const num = String(i + 1).padStart(2, '0');
@@ -350,6 +377,8 @@ let hiddenCount = 0;
 data.forEach((d, i) => {
   if (FEATURED.has(i)) {
     makeCard(d, i, mainGrid);
+  } else if (SNS_PICKS.has(i)) {
+    makeCard(d, i, snsGrid);
   } else {
     makeCard(d, i, hiddenGrid);
     hiddenCount++;
@@ -358,6 +387,8 @@ data.forEach((d, i) => {
 
 toggleCount.textContent = `${hiddenCount}개`;
 toggleWrap.style.display = 'block';
+snsCount.textContent = `${SNS_PICKS.size}개`;
+snsWrap.style.display = 'block';
 
 let open = false;
 toggleBtn.addEventListener('click', () => {
@@ -365,6 +396,14 @@ toggleBtn.addEventListener('click', () => {
   hiddenGrid.style.display = open ? 'grid' : 'none';
   toggleArrow.classList.toggle('open', open);
   document.getElementById('toggleLabel').textContent = open ? '나머지 기획 접기' : '나머지 기획 보기';
+});
+
+let snsOpen = false;
+snsBtn.addEventListener('click', () => {
+  snsOpen = !snsOpen;
+  snsGrid.style.display = snsOpen ? 'grid' : 'none';
+  snsArrow.classList.toggle('open', snsOpen);
+  document.getElementById('snsLabel').textContent = snsOpen ? 'SNS 게시글로 활용 접기' : 'SNS 게시글로 활용';
 });
 </script>
 
