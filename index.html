@@ -53,6 +53,10 @@
     grid-template-columns: repeat(10, minmax(0, 1fr));
     gap: 8px;
   }
+  #grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
 
   .card {
     background: var(--white);
@@ -64,6 +68,11 @@
     gap: 6px;
     cursor: pointer;
     transition: opacity 0.15s, filter 0.15s;
+  }
+  #grid .card {
+    padding: 20px;
+    gap: 10px;
+    border-radius: 12px;
   }
   .grid.has-focus .card { opacity: 0.15; filter: grayscale(0.4); }
   .grid.has-focus .card.focused { opacity: 1; filter: none; }
@@ -78,16 +87,19 @@
     padding: 1px 6px;
     width: fit-content;
   }
+  #grid .card-num { font-size: 11px; padding: 2px 10px; border-radius: 4px; }
   .card-title {
     font-size: 10px;
     font-weight: 700;
     color: var(--black);
     line-height: 1.4;
   }
+  #grid .card-title { font-size: 18px; }
   .card-divider { border: none; border-top: 1px solid var(--gray-border); }
 
   .row { font-size: 9px; line-height: 1.45; color: var(--gray-text); }
   .row b { color: var(--black); font-weight: 700; }
+  #grid .row { font-size: 13px; line-height: 1.6; }
 
   .toggle-wrap {
     max-width: 1800px;
@@ -256,7 +268,7 @@ const data = [
   {t:"GMP 제조 공정 이야기", who:"레몬더마 R&D팀이", how:"COSMAX GMP 공정에서 레몬더마가 만들어지는 과정을 투명하게 공개하는 방식으로", why:"제조 투명성으로 브랜드 신뢰를 구축하기 위해"},
   {t:"처음 쓸 때 느낌 가이드", who:"레몬더마 고객팀이", how:"처음 사용 시 경험할 수 있는 작동감을 미리 설명하고 안심시키는 방식으로", why:"초기 사용 이탈을 방지하고 루틴 형성을 돕기 위해"},
   // 81-90 커뮤니티/인플루언서
-  {t:"스킨케어 덕후 추천", who:"레몬더마 스킨케어 큐레이터가", how:"스킨케어 고관여 소비자 관점에서 성분과 효능을 딥하게 리뷰하는 방식으로", why:"성분 덕후 커뮤니티를 통해 신뢰를 확산하기 위해"},
+  {t:"스킨케어 덕후 추천", who:"스킨케어 덕후가", how:"스킨케어 고관여 소비자 관점에서 성분과 효능을 딥하게 리뷰하는 방식으로", why:"성분 덕후 커뮤니티를 통해 신뢰를 확산하기 위해"},
   {t:"뷰티 크리에이터 협업", who:"레몬더마 브랜드가", how:"공신력 있는 뷰티 크리에이터와 함께 레몬더마 사용 경험을 자연스럽게 보여주는 방식으로", why:"신규 팔로워 유입과 소비전환을 동시에 이루기 위해"},
   {t:"피부과 전문의 Q&A", who:"레몬더마 클리닉 파트너가", how:"예민성 피부 관련 소비자 질문에 피부과 전문의가 답변하며 레몬더마를 언급하는 방식으로", why:"의료 권위를 활용해 브랜드 신뢰를 높이기 위해"},
   {t:"레몬더마 써클 멤버 이야기", who:"레몬더마 고객팀이", how:"레몬더마 커뮤니티 멤버들의 피부 변화 스토리를 모아 소개하는 방식으로", why:"커뮤니티 소속감과 신규 가입 동기를 만들기 위해"},
@@ -329,8 +341,8 @@ const data = [
   {t:"그 자리에 레몬더마", who:"레몬더마 브랜드가", how:"자연과 과학이 만나는 바로 그 지점에 레몬더마가 있다는 브랜드 선언을 임팩트 있는 비주얼과 함께", why:"슬로건을 소비자 마음에 완전히 각인시키고 소비전환을 이끌기 위해"},
 ];
 
-const FEATURED = new Set([0,11,12,20,21,25,30,37,41,44,59,80,90]);
-const SNS_PICKS = new Set([79, 85, 87]);
+const FEATURED = new Set([0,25,80,90]);
+const SNS_PICKS = new Set([12,20,30,37,41,44,59,79,85,87]);
 
 const mainGrid = document.getElementById('grid');
 const hiddenGrid = document.getElementById('hiddenGrid');
