@@ -128,6 +128,8 @@
     border-radius: 4px;
     padding: 2px 8px;
   }
+  .fixed-row { color: var(--gray-text); }
+  .fixed-row b { color: var(--gray-text); }
   #snsArrow { margin-left: auto; font-size: 11px; color: var(--gray-text); transition: transform 0.2s; }
   #snsArrow.open { transform: rotate(180deg); }
 
@@ -356,6 +358,9 @@ function makeCard(d, i, targetGrid) {
     <div class="card-title">${d.t}</div>
     <hr class="card-divider">
     <div class="row"><b>누가</b> ${d.who}</div>
+    <div class="row fixed-row"><b>어디서</b> 인스타그램에서</div>
+    <div class="row fixed-row"><b>무엇을</b> 레몬더마 세럼/크림을</div>
+    <div class="row fixed-row"><b>언제</b> 일주일에 5번</div>
     <div class="row"><b>어떻게</b> ${d.how}</div>
     <div class="row"><b>왜</b> ${d.why}</div>
   `;
