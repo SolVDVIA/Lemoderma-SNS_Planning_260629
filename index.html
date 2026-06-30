@@ -97,9 +97,16 @@
   #grid .card-title { font-size: 18px; }
   .card-divider { border: none; border-top: 1px solid var(--gray-border); }
 
-  .row { font-size: 9px; line-height: 1.45; color: var(--gray-text); }
+  .row {
+    font-size: 9px;
+    line-height: 1.45;
+    color: var(--gray-text);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 4px;
+  }
   .row b { color: var(--black); font-weight: 700; }
-  #grid .row { font-size: 13px; line-height: 1.6; }
+  #grid .row { font-size: 13px; line-height: 1.6; grid-template-columns: 52px 1fr; }
 
   .toggle-wrap {
     max-width: 1800px;
@@ -364,12 +371,12 @@ function makeCard(d, i, targetGrid) {
     <span class="card-num">${num}</span>
     <div class="card-title">${d.t}</div>
     <hr class="card-divider">
-    <div class="row"><b>누가</b> ${d.who}</div>
-    <div class="row fixed-row"><b>어디서</b> 인스타그램에서</div>
-    <div class="row fixed-row"><b>무엇을</b> 레몬더마 세럼/크림을</div>
-    <div class="row fixed-row"><b>언제</b> 일주일에 5번</div>
-    <div class="row"><b>어떻게</b> ${d.how}</div>
-    <div class="row"><b>왜</b> ${d.why}</div>
+    <div class="row"><b>누가</b><span>${d.who}</span></div>
+    <div class="row fixed-row"><b>어디서</b><span>인스타그램에서</span></div>
+    <div class="row fixed-row"><b>무엇을</b><span>레몬더마 세럼/크림을</span></div>
+    <div class="row fixed-row"><b>언제</b><span>일주일에 5번</span></div>
+    <div class="row"><b>어떻게</b><span>${d.how}</span></div>
+    <div class="row"><b>왜</b><span>${d.why}</span></div>
   `;
   card.addEventListener('click', () => {
     const g = card.closest('.grid');
